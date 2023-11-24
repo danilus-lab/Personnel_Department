@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{949704E0-E0F4-494F-ACBC-26608AF24075}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Personnel_Department</RootNamespace>
+    <AssemblyName>Personnel_Department</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_Worker_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Worker_Form.Designer.cs">
+      <DependentUpon>Add_Worker_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change_row_in_staff_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_row_in_staff_list.Designer.cs">
+      <DependentUpon>Change_row_in_staff_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Choose_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Choose_Form.Designer.cs">
+      <DependentUpon>Choose_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_medical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_medical.Designer.cs">
+      <DependentUpon>Create_medical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_mission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_mission.Designer.cs">
+      <DependentUpon>Create_mission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create_vacation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_vacation.Designer.cs">
+      <DependentUpon>Create_vacation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_worker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_worker.Designer.cs">
+      <DependentUpon>Delete_worker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otdel_kadrovDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Otdel_kadrovDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Staff_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff_list.Designer.cs">
+      <DependentUpon>Staff_list.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add_Worker_Form.resx">
+      <DependentUpon>Add_Worker_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change_row_in_staff_list.resx">
+      <DependentUpon>Change_row_in_staff_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Choose_Form.resx">
+      <DependentUpon>Choose_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_medical.resx">
+      <DependentUpon>Create_medical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_mission.resx">
+      <DependentUpon>Create_mission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_vacation.resx">
+      <DependentUpon>Create_vacation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete_worker.resx">
+      <DependentUpon>Delete_worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Staff_list.resx">
+      <DependentUpon>Staff_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Otdel_kadrovDataSet.xsc">
+      <DependentUpon>Otdel_kadrovDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Otdel_kadrovDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Otdel_kadrovDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Otdel_kadrovDataSet.xss">
+      <DependentUpon>Otdel_kadrovDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
