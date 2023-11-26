@@ -56,6 +56,7 @@
             this.fio_textBox.Name = "fio_textBox";
             this.fio_textBox.Size = new System.Drawing.Size(242, 20);
             this.fio_textBox.TabIndex = 0;
+            this.fio_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fio_textBox_KeyPress);
             // 
             // dep_textBox
             // 
@@ -66,6 +67,7 @@
             this.dep_textBox.Name = "dep_textBox";
             this.dep_textBox.Size = new System.Drawing.Size(36, 20);
             this.dep_textBox.TabIndex = 1;
+            this.dep_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dep_textBox_KeyPress);
             // 
             // dateTimePicker
             // 
@@ -214,6 +216,7 @@
             this.postname_textBox.Name = "postname_textBox";
             this.postname_textBox.Size = new System.Drawing.Size(241, 20);
             this.postname_textBox.TabIndex = 16;
+            this.postname_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.postname_textBox_KeyPress);
             // 
             // stage_textbox
             // 
@@ -221,6 +224,7 @@
             this.stage_textbox.Name = "stage_textbox";
             this.stage_textbox.Size = new System.Drawing.Size(36, 20);
             this.stage_textbox.TabIndex = 17;
+            this.stage_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stage_textbox_KeyPress);
             // 
             // Add_Worker_Form
             // 

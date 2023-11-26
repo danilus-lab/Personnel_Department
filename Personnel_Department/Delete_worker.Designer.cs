@@ -36,6 +36,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.deleteCommand = new System.Data.SqlClient.SqlCommand();
+            this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +92,22 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Уволить сотрудника";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // deleteCommand
+            // 
+            this.deleteCommand.CommandText = "Delete_worker";
+            this.deleteCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            this.deleteCommand.Connection = this.sqlConnection1;
+            this.deleteCommand.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+            new System.Data.SqlClient.SqlParameter("@id_worker", System.Data.SqlDbType.Int),
+            new System.Data.SqlClient.SqlParameter("@message", System.Data.SqlDbType.VarChar, 100, System.Data.ParameterDirection.Output, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null)});
+            // 
+            // sqlConnection1
+            // 
+            this.sqlConnection1.ConnectionString = "Data Source=DESKTOP-T003JCT\\SQLEXPRESS;Initial Catalog=Otdel_kadrov;Integrated Se" +
+    "curity=True";
+            this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
             // Delete_worker
             // 
@@ -120,5 +138,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Data.SqlClient.SqlCommand deleteCommand;
+        private System.Data.SqlClient.SqlConnection sqlConnection1;
     }
 }

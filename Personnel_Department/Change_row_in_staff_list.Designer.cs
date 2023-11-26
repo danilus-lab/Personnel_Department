@@ -49,6 +49,7 @@
             this.num_dep_textBox.Name = "num_dep_textBox";
             this.num_dep_textBox.Size = new System.Drawing.Size(100, 20);
             this.num_dep_textBox.TabIndex = 0;
+            this.num_dep_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_dep_textBox_KeyPress);
             // 
             // post_name_textBox
             // 
@@ -56,6 +57,7 @@
             this.post_name_textBox.Name = "post_name_textBox";
             this.post_name_textBox.Size = new System.Drawing.Size(100, 20);
             this.post_name_textBox.TabIndex = 1;
+            this.post_name_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.post_name_textBox_KeyPress);
             // 
             // count_units_textBox
             // 
@@ -63,6 +65,7 @@
             this.count_units_textBox.Name = "count_units_textBox";
             this.count_units_textBox.Size = new System.Drawing.Size(100, 20);
             this.count_units_textBox.TabIndex = 2;
+            this.count_units_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.count_units_textBox_KeyPress);
             // 
             // salary_textBox
             // 
@@ -70,6 +73,7 @@
             this.salary_textBox.Name = "salary_textBox";
             this.salary_textBox.Size = new System.Drawing.Size(100, 20);
             this.salary_textBox.TabIndex = 3;
+            this.salary_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salary_textBox_KeyPress);
             // 
             // label1
             // 

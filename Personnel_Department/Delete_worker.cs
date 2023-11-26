@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,22 @@ namespace Personnel_Department
                 // Send a success message:
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id_worker = Convert.ToInt32(workers_listbox.SelectedValue);
+            sqlConnection1.Open();
+
+            deleteCommand.Parameters["@id_worker"].Value = id_worker;
+
+            deleteCommand.ExecuteNonQuery();
+            sqlConnection1.Close();
+
+            string result = Convert.ToString(deleteCommand.Parameters["@message"].Value);
+            MessageBox.Show(result);
+
+            this.workerTableAdapter.Fill(this.otdel_kadrovDataSet.Worker);
         }
     }
 }

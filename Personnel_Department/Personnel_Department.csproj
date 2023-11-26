@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_row_in_staff_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_row_in_staff_list.Designer.cs">
+      <DependentUpon>Add_row_in_staff_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_Worker_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Staff_list.Designer.cs">
       <DependentUpon>Staff_list.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_row_in_staff_list.resx">
+      <DependentUpon>Add_row_in_staff_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_Worker_Form.resx">
       <DependentUpon>Add_Worker_Form.cs</DependentUpon>
     </EmbeddedResource>

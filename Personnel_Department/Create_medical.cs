@@ -33,7 +33,7 @@ namespace Personnel_Department
             if (start_dateTimePicker.Value == end_dateTimePicker.Value || start_dateTimePicker.Value > end_dateTimePicker.Value)
             {
                 MessageBox.Show(
-                "Некорректные даты отпуска",
+                "Некорректные даты больничного",
                 "Ошибка",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error,

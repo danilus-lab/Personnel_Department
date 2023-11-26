@@ -54,5 +54,39 @@ namespace Personnel_Department
 
             sqlConnection1.Close();
         }
+
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            Form frm = new Add_row_in_staff_list();
+            frm.Show();
+        }
+
+        private void delete_row_Click(object sender, EventArgs e)
+        {
+            if (staff_list_grid.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = staff_list_grid.SelectedRows[0];
+
+                sqlConnection1.Open();
+
+                deleteCommand.Parameters["@id_record"].Value = Convert.ToInt32(selectedRow.Cells["Номер записи"].Value);
+
+                deleteCommand.ExecuteNonQuery();
+
+                sqlConnection1.Close();
+
+                string result = Convert.ToString(deleteCommand.Parameters["@message"].Value);
+                MessageBox.Show(result);
+
+                sqlConnection1.Open();
+                var temp_staff_list = new DataTable();
+
+                temp_staff_list.Load(fill_the_tabel_command.ExecuteReader());
+
+                staff_list_grid.DataSource = temp_staff_list;
+
+                sqlConnection1.Close();
+            }
+        }
     }
 }
