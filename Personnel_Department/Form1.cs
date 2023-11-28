@@ -45,19 +45,19 @@ namespace Personnel_Department
             switch (sort_listBox.SelectedIndex)
             {
                 case 0:
-                    Col = dataGridViewTextBoxColumn2;
+                    Col = fIOworkerDataGridViewTextBoxColumn;
                     break;
                 case 1:
-                    Col = dataGridViewTextBoxColumn5;
+                    Col = databirthDataGridViewTextBoxColumn;
                     break;
                 case 2:
-                    Col = dataGridViewTextBoxColumn7;
+                    Col = allowanceDataGridViewTextBoxColumn;
                     break;
                 case 3:
-                    Col = dataGridViewTextBoxColumn8;
+                    Col = stageDataGridViewTextBoxColumn;
                     break;
                 case 4:
-                    Col = dataGridViewTextBoxColumn10;
+                    Col = workreceptiondateDataGridViewTextBoxColumn;
                     break;
             }
             if (ascending_radioButton.Checked)
@@ -84,6 +84,29 @@ namespace Personnel_Department
         private void find_button_Click(object sender, EventArgs e)
         {
             workerBindingSource.Filter = "FIO_worker Like '" + fio_textBox.Text + "%'";
+        }
+
+        private void edit_worker_button_Click(object sender, EventArgs e)
+        {
+
+            if (workerDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = workerDataGridView.SelectedRows[0];
+
+                string num_worker = selectedRow.Cells["iDworkerDataGridViewTextBoxColumn"].Value.ToString();
+                string fio = selectedRow.Cells["fIOworkerDataGridViewTextBoxColumn"].Value.ToString();
+                string num_dep = selectedRow.Cells["depDataGridViewTextBoxColumn"].Value.ToString();
+                string post_name = selectedRow.Cells["postnameDataGridViewTextBoxColumn"].Value.ToString();
+                string allowance = selectedRow.Cells["allowanceDataGridViewTextBoxColumn"].Value.ToString();
+
+                Form frm = new Edit_worker(num_worker, fio, num_dep, post_name, allowance);
+                frm.Show();
+            }
+        }
+
+        private void refresh_button_Click(object sender, EventArgs e)
+        {
+            this.workerTableAdapter.Fill(this.otdel_kadrovDataSet.Worker);
         }
     }
 }
