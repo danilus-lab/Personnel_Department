@@ -28,16 +28,25 @@ namespace Personnel_Department
             addCommand.Parameters["@Sex"].Value = sex_comboBox.SelectedItem.ToString();
             addCommand.Parameters["@Stage"].Value = stage_textbox.Text;
 
-            if (fio_textBox.Text != "" && dep_textBox.Text != "" && dateTimePicker.Text != "")
+            if (fio_textBox.Text != "" && dep_textBox.Text != "" && dateTimePicker.Text != "" && postname_textBox.Text != "" && stage_textbox.Text != "")
             {
                 myConnection.Open();
                 addCommand.ExecuteNonQuery();
                 myConnection.Close();
+
+                MessageBox.Show(
+                "Работник успешно добавлен",
+                "Успех",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly
+                );
             }
             else
             {
                 MessageBox.Show(
-                "Заполните обязательные поля",
+                "Заполните обязательные поля!",
                 "Ошибка",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error,
@@ -49,7 +58,7 @@ namespace Personnel_Department
 
         private void stage_textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -57,7 +66,7 @@ namespace Personnel_Department
 
         private void dep_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
@@ -65,7 +74,7 @@ namespace Personnel_Department
 
         private void fio_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != 'Ё' && e.KeyChar != 'ё')
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != (char)Keys.Back || char.IsUpper(e.KeyChar) && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -73,7 +82,7 @@ namespace Personnel_Department
 
         private void postname_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != 'Ё' && e.KeyChar != 'ё')
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != 'Ё' && e.KeyChar != 'ё' && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

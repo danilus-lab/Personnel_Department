@@ -194,21 +194,21 @@
             // 
             this.stage_label.AutoSize = true;
             this.stage_label.Font = new System.Drawing.Font("Elephant", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stage_label.Location = new System.Drawing.Point(79, 190);
+            this.stage_label.Location = new System.Drawing.Point(75, 190);
             this.stage_label.Name = "stage_label";
-            this.stage_label.Size = new System.Drawing.Size(51, 20);
+            this.stage_label.Size = new System.Drawing.Size(58, 20);
             this.stage_label.TabIndex = 14;
-            this.stage_label.Text = "Стаж:";
+            this.stage_label.Text = "Стаж*:";
             // 
             // postname_label
             // 
             this.postname_label.AutoSize = true;
             this.postname_label.Font = new System.Drawing.Font("Elephant", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postname_label.Location = new System.Drawing.Point(35, 231);
+            this.postname_label.Location = new System.Drawing.Point(28, 231);
             this.postname_label.Name = "postname_label";
-            this.postname_label.Size = new System.Drawing.Size(95, 20);
+            this.postname_label.Size = new System.Drawing.Size(102, 20);
             this.postname_label.TabIndex = 15;
-            this.postname_label.Text = "Должность:";
+            this.postname_label.Text = "Должность*:";
             // 
             // postname_textBox
             // 

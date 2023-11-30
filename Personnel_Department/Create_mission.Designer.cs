@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.workers_listbox = new System.Windows.Forms.ListBox();
-            this.otdel_kadrovDataSet = new Personnel_Department.Otdel_kadrovDataSet();
             this.workerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.otdel_kadrovDataSet = new Personnel_Department.Otdel_kadrovDataSet();
             this.workerTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.WorkerTableAdapter();
             this.start_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.end_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -45,8 +45,8 @@
             this.sqlCommand1 = new System.Data.SqlClient.SqlCommand();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,15 +69,15 @@
             this.workers_listbox.TabIndex = 4;
             this.workers_listbox.ValueMember = "ID_worker";
             // 
-            // otdel_kadrovDataSet
-            // 
-            this.otdel_kadrovDataSet.DataSetName = "Otdel_kadrovDataSet";
-            this.otdel_kadrovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // workerBindingSource
             // 
             this.workerBindingSource.DataMember = "Worker";
             this.workerBindingSource.DataSource = this.otdel_kadrovDataSet;
+            // 
+            // otdel_kadrovDataSet
+            // 
+            this.otdel_kadrovDataSet.DataSetName = "Otdel_kadrovDataSet";
+            this.otdel_kadrovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // workerTableAdapter
             // 
@@ -130,6 +130,7 @@
             this.place_textBox.Name = "place_textBox";
             this.place_textBox.Size = new System.Drawing.Size(199, 20);
             this.place_textBox.TabIndex = 10;
+            this.place_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.place_textBox_KeyPress);
             // 
             // button1
             // 
@@ -196,8 +197,8 @@
             this.Name = "Create_mission";
             this.Text = "Создание командировки";
             this.Load += new System.EventHandler(this.Create_mission_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

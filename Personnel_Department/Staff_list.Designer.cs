@@ -43,6 +43,7 @@
             // 
             this.staff_list_grid.AllowUserToAddRows = false;
             this.staff_list_grid.AllowUserToDeleteRows = false;
+            this.staff_list_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.staff_list_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.staff_list_grid.Location = new System.Drawing.Point(12, 12);
             this.staff_list_grid.Name = "staff_list_grid";

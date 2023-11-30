@@ -94,6 +94,12 @@
     <Compile Include="Delete_worker.Designer.cs">
       <DependentUpon>Delete_worker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deps_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deps_list.Designer.cs">
+      <DependentUpon>Deps_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit_worker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,18 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicals_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicals_list.Designer.cs">
+      <DependentUpon>Medicals_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Missions_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Missions_list.Designer.cs">
+      <DependentUpon>Missions_list.cs</DependentUpon>
     </Compile>
     <Compile Include="Otdel_kadrovDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +136,12 @@
     </Compile>
     <Compile Include="Staff_list.Designer.cs">
       <DependentUpon>Staff_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vacations_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vacations_list.Designer.cs">
+      <DependentUpon>Vacations_list.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Add_row_in_staff_list.resx">
       <DependentUpon>Add_row_in_staff_list.cs</DependentUpon>
@@ -143,11 +167,20 @@
     <EmbeddedResource Include="Delete_worker.resx">
       <DependentUpon>Delete_worker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Deps_list.resx">
+      <DependentUpon>Deps_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit_worker.resx">
       <DependentUpon>Edit_worker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medicals_list.resx">
+      <DependentUpon>Medicals_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Missions_list.resx">
+      <DependentUpon>Missions_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,6 +193,9 @@
     </Compile>
     <EmbeddedResource Include="Staff_list.resx">
       <DependentUpon>Staff_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vacations_list.resx">
+      <DependentUpon>Vacations_list.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Otdel_kadrovDataSet.xsc">
       <DependentUpon>Otdel_kadrovDataSet.xsd</DependentUpon>

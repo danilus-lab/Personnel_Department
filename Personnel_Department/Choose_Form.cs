@@ -15,6 +15,10 @@ namespace Personnel_Department
         public Choose_Form()
         {
             InitializeComponent();
+
+            sqlConnection1.Open();
+            check_status.ExecuteNonQuery();
+            sqlConnection1.Close();
         }
 
         private void add_worker_Click(object sender, EventArgs e)
@@ -56,6 +60,30 @@ namespace Personnel_Department
         private void staff_list_Click(object sender, EventArgs e)
         {
             Form frm = new Staff_list();
+            frm.Show();
+        }
+
+        private void vacations_Click(object sender, EventArgs e)
+        {
+            Form frm = new Vacations_list();
+            frm.Show();
+        }
+
+        private void medicals_Click(object sender, EventArgs e)
+        {
+            Form frm = new Medicals_list();
+            frm.Show();
+        }
+
+        private void missions_Click(object sender, EventArgs e)
+        {
+            Form frm = new Missions_list();
+            frm.Show();
+        }
+
+        private void dep_Click(object sender, EventArgs e)
+        {
+            Form frm = new Deps_list();
             frm.Show();
         }
     }
