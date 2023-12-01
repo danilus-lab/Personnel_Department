@@ -120,12 +120,7 @@
   <metadata name="sqlConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="fill_the_table_comm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="save_changes_comm.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>153, 17</value>
   </metadata>
-  <data name="fill_the_table_comm.CommandText" xml:space="preserve">
-    <value>SELECT        Vacation.Num_vacation AS [Номер отпуска], Worker.FIO_worker AS 'ФИО', Vacation.Data_start_vacation AS 'Дата начала', Vacation.Data_end_vacation AS 'Дата окончания', Vacation.Type_vacation AS 'Тип отпуска'
-FROM            Vacation INNER JOIN
-                         Worker ON Vacation.ID_worker = Worker.ID_worker</value>
-  </data>
 </root>

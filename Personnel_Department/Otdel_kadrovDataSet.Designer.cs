@@ -2845,8 +2845,6 @@ namespace Personnel_Department {
             
             private global::System.Data.DataColumn columnWork_reception_date;
             
-            private global::System.Data.DataColumn columnData_termination;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WorkerDataTable() {
@@ -2962,14 +2960,6 @@ namespace Personnel_Department {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Data_terminationColumn {
-                get {
-                    return this.columnData_termination;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3005,7 +2995,7 @@ namespace Personnel_Department {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public WorkerRow AddWorkerRow(int ID_worker, string FIO_worker, DepRow parentDepRowByFK_Работник_Отдел, string Post_name, System.DateTime Data_birth, string Sex, double Allowance, int Stage, string Status, System.DateTime Work_reception_date, System.DateTime Data_termination) {
+            public WorkerRow AddWorkerRow(int ID_worker, string FIO_worker, DepRow parentDepRowByFK_Работник_Отдел, string Post_name, System.DateTime Data_birth, string Sex, double Allowance, int Stage, string Status, System.DateTime Work_reception_date) {
                 WorkerRow rowWorkerRow = ((WorkerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_worker,
@@ -3017,8 +3007,7 @@ namespace Personnel_Department {
                         Allowance,
                         Stage,
                         Status,
-                        Work_reception_date,
-                        Data_termination};
+                        Work_reception_date};
                 if ((parentDepRowByFK_Работник_Отдел != null)) {
                     columnValuesArray[2] = parentDepRowByFK_Работник_Отдел[0];
                 }
@@ -3061,7 +3050,6 @@ namespace Personnel_Department {
                 this.columnStage = base.Columns["Stage"];
                 this.columnStatus = base.Columns["Status"];
                 this.columnWork_reception_date = base.Columns["Work_reception_date"];
-                this.columnData_termination = base.Columns["Data_termination"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3087,8 +3075,6 @@ namespace Personnel_Department {
                 base.Columns.Add(this.columnStatus);
                 this.columnWork_reception_date = new global::System.Data.DataColumn("Work_reception_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWork_reception_date);
-                this.columnData_termination = new global::System.Data.DataColumn("Data_termination", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnData_termination);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_worker}, true));
                 this.columnID_worker.AllowDBNull = false;
@@ -4134,22 +4120,6 @@ namespace Personnel_Department {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Data_termination {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableWorker.Data_terminationColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Data_termination\' в таблице \'Worker\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWorker.Data_terminationColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DepRow DepRow {
                 get {
                     return ((DepRow)(this.GetParentRow(this.Table.ParentRelations["FK_Работник_Отдел"])));
@@ -4229,18 +4199,6 @@ namespace Personnel_Department {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetStatusNull() {
                 this[this.tableWorker.StatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsData_terminationNull() {
-                return this.IsNull(this.tableWorker.Data_terminationColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetData_terminationNull() {
-                this[this.tableWorker.Data_terminationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7210,7 +7168,6 @@ SELECT Num_vacation, Num_order, ID_worker, Data_start_vacation, Data_end_vacatio
             tableMapping.ColumnMappings.Add("Stage", "Stage");
             tableMapping.ColumnMappings.Add("Status", "Status");
             tableMapping.ColumnMappings.Add("Work_reception_date", "Work_reception_date");
-            tableMapping.ColumnMappings.Add("Data_termination", "Data_termination");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7296,12 +7253,25 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, " +
-                "Status, Work_reception_date, Data_termination FROM dbo.Worker";
+            this._commandCollection[0].CommandText = "SELECT        ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, " +
+                "Stage, Status, Work_reception_date\r\nFROM            Worker\r\nWHERE        (Data_t" +
+                "ermination IS NULL)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, " +
+                "Status, Work_reception_date, Data_termination FROM dbo.Worker where Data_termina" +
+                "tion = null";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, " +
+                "Status, Work_reception_date, Data_termination FROM dbo.Worker where Data_termina" +
+                "tion = null";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7326,6 +7296,32 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
             Otdel_kadrovDataSet.WorkerDataTable dataTable = new Otdel_kadrovDataSet.WorkerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(Otdel_kadrovDataSet.WorkerDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(Otdel_kadrovDataSet.WorkerDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

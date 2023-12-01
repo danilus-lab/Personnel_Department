@@ -100,6 +100,24 @@
     <Compile Include="Deps_list.Designer.cs">
       <DependentUpon>Deps_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_medical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_medical.Designer.cs">
+      <DependentUpon>Edit_medical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_mission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_mission.Designer.cs">
+      <DependentUpon>Edit_mission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_vacation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_vacation.Designer.cs">
+      <DependentUpon>Edit_vacation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit_worker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +187,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Deps_list.resx">
       <DependentUpon>Deps_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_medical.resx">
+      <DependentUpon>Edit_medical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_mission.resx">
+      <DependentUpon>Edit_mission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_vacation.resx">
+      <DependentUpon>Edit_vacation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_worker.resx">
       <DependentUpon>Edit_worker.cs</DependentUpon>

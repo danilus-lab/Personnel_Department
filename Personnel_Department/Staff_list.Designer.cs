@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff_list));
             this.staff_list_grid = new System.Windows.Forms.DataGridView();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.fill_the_tabel_command = new System.Data.SqlClient.SqlCommand();
@@ -60,9 +61,7 @@
             // 
             // fill_the_tabel_command
             // 
-            this.fill_the_tabel_command.CommandText = "SELECT ID_record AS \'Номер записи\', Num_dep AS \'Номер отдела\', Post_name AS \'Долж" +
-    "ность\', Count_units AS \'Количество рабочих мест\', Salary AS \'Зарплата\' FROM Staf" +
-    "fList";
+            this.fill_the_tabel_command.CommandText = resources.GetString("fill_the_tabel_command.CommandText");
             this.fill_the_tabel_command.Connection = this.sqlConnection1;
             // 
             // edit_button

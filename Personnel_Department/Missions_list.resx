@@ -124,7 +124,8 @@
     <value>471, 17</value>
   </metadata>
   <data name="fill_the_table_comm.CommandText" xml:space="preserve">
-    <value>SELECT        Worker.FIO_worker AS ФИО, Mission.Place_order AS [Место командировки], Mission.Data_start_mission AS [Дата начала], Mission.Data_end_mission AS [Дата окончания]
+    <value>SELECT        Mission.Num_mission AS [Номер командировки], Worker.FIO_worker AS ФИО, Mission.Place_order AS [Место командировки], Mission.Data_start_mission AS [Дата начала], 
+                         Mission.Data_end_mission AS [Дата окончания]
 FROM            Worker INNER JOIN
                          Mission ON Worker.ID_worker = Mission.ID_worker</value>
   </data>

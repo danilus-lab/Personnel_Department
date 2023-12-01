@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fio_textBox = new System.Windows.Forms.TextBox();
-            this.dep_textBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.myConnection = new System.Data.SqlClient.SqlConnection();
             this.addCommand = new System.Data.SqlClient.SqlCommand();
@@ -43,8 +43,17 @@
             this.birth_label = new System.Windows.Forms.Label();
             this.stage_label = new System.Windows.Forms.Label();
             this.postname_label = new System.Windows.Forms.Label();
-            this.postname_textBox = new System.Windows.Forms.TextBox();
             this.stage_textbox = new System.Windows.Forms.TextBox();
+            this.dep_comboBox = new System.Windows.Forms.ComboBox();
+            this.otdel_kadrovDataSet = new Personnel_Department.Otdel_kadrovDataSet();
+            this.depBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.depTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.DepTableAdapter();
+            this.post_name_combo = new System.Windows.Forms.ComboBox();
+            this.staffListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.staffListTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.StaffListTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fio_textBox
@@ -57,17 +66,6 @@
             this.fio_textBox.Size = new System.Drawing.Size(242, 20);
             this.fio_textBox.TabIndex = 0;
             this.fio_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fio_textBox_KeyPress);
-            // 
-            // dep_textBox
-            // 
-            this.dep_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dep_textBox.Location = new System.Drawing.Point(139, 274);
-            this.dep_textBox.Name = "dep_textBox";
-            this.dep_textBox.Size = new System.Drawing.Size(36, 20);
-            this.dep_textBox.TabIndex = 1;
-            this.dep_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dep_textBox_KeyPress);
             // 
             // dateTimePicker
             // 
@@ -133,7 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dep_label.AutoSize = true;
             this.dep_label.Font = new System.Drawing.Font("Elephant", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dep_label.Location = new System.Drawing.Point(64, 273);
+            this.dep_label.Location = new System.Drawing.Point(64, 232);
             this.dep_label.Name = "dep_label";
             this.dep_label.Size = new System.Drawing.Size(66, 20);
             this.dep_label.TabIndex = 6;
@@ -204,19 +202,11 @@
             // 
             this.postname_label.AutoSize = true;
             this.postname_label.Font = new System.Drawing.Font("Elephant", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postname_label.Location = new System.Drawing.Point(28, 231);
+            this.postname_label.Location = new System.Drawing.Point(28, 270);
             this.postname_label.Name = "postname_label";
             this.postname_label.Size = new System.Drawing.Size(102, 20);
             this.postname_label.TabIndex = 15;
             this.postname_label.Text = "Должность*:";
-            // 
-            // postname_textBox
-            // 
-            this.postname_textBox.Location = new System.Drawing.Point(139, 232);
-            this.postname_textBox.Name = "postname_textBox";
-            this.postname_textBox.Size = new System.Drawing.Size(241, 20);
-            this.postname_textBox.TabIndex = 16;
-            this.postname_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.postname_textBox_KeyPress);
             // 
             // stage_textbox
             // 
@@ -226,14 +216,58 @@
             this.stage_textbox.TabIndex = 17;
             this.stage_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stage_textbox_KeyPress);
             // 
+            // dep_comboBox
+            // 
+            this.dep_comboBox.DataSource = this.depBindingSource;
+            this.dep_comboBox.DisplayMember = "Num_dep";
+            this.dep_comboBox.FormattingEnabled = true;
+            this.dep_comboBox.Location = new System.Drawing.Point(139, 231);
+            this.dep_comboBox.Name = "dep_comboBox";
+            this.dep_comboBox.Size = new System.Drawing.Size(36, 21);
+            this.dep_comboBox.TabIndex = 18;
+            this.dep_comboBox.ValueMember = "Num_dep";
+            this.dep_comboBox.SelectedIndexChanged += new System.EventHandler(this.dep_comboBox_SelectedIndexChanged);
+            // 
+            // otdel_kadrovDataSet
+            // 
+            this.otdel_kadrovDataSet.DataSetName = "Otdel_kadrovDataSet";
+            this.otdel_kadrovDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // depBindingSource
+            // 
+            this.depBindingSource.DataMember = "Dep";
+            this.depBindingSource.DataSource = this.otdel_kadrovDataSet;
+            // 
+            // depTableAdapter
+            // 
+            this.depTableAdapter.ClearBeforeFill = true;
+            // 
+            // post_name_combo
+            // 
+            this.post_name_combo.FormattingEnabled = true;
+            this.post_name_combo.Location = new System.Drawing.Point(139, 271);
+            this.post_name_combo.Name = "post_name_combo";
+            this.post_name_combo.Size = new System.Drawing.Size(121, 21);
+            this.post_name_combo.TabIndex = 19;
+            // 
+            // staffListBindingSource
+            // 
+            this.staffListBindingSource.DataMember = "StaffList";
+            this.staffListBindingSource.DataSource = this.otdel_kadrovDataSet;
+            // 
+            // staffListTableAdapter
+            // 
+            this.staffListTableAdapter.ClearBeforeFill = true;
+            // 
             // Add_Worker_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.post_name_combo);
+            this.Controls.Add(this.dep_comboBox);
             this.Controls.Add(this.stage_textbox);
-            this.Controls.Add(this.postname_textBox);
             this.Controls.Add(this.postname_label);
             this.Controls.Add(this.stage_label);
             this.Controls.Add(this.birth_label);
@@ -245,10 +279,13 @@
             this.Controls.Add(this.fio_label);
             this.Controls.Add(this.add);
             this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.dep_textBox);
             this.Controls.Add(this.fio_textBox);
             this.Name = "Add_Worker_Form";
             this.Text = "Добавления сотрудника";
+            this.Load += new System.EventHandler(this.Add_Worker_Form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,7 +294,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox fio_textBox;
-        private System.Windows.Forms.TextBox dep_textBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Data.SqlClient.SqlConnection myConnection;
         private System.Data.SqlClient.SqlCommand addCommand;
@@ -271,7 +307,13 @@
         private System.Windows.Forms.Label birth_label;
         private System.Windows.Forms.Label stage_label;
         private System.Windows.Forms.Label postname_label;
-        private System.Windows.Forms.TextBox postname_textBox;
         private System.Windows.Forms.TextBox stage_textbox;
+        private System.Windows.Forms.ComboBox dep_comboBox;
+        private Otdel_kadrovDataSet otdel_kadrovDataSet;
+        private System.Windows.Forms.BindingSource depBindingSource;
+        private Otdel_kadrovDataSetTableAdapters.DepTableAdapter depTableAdapter;
+        private System.Windows.Forms.ComboBox post_name_combo;
+        private System.Windows.Forms.BindingSource staffListBindingSource;
+        private Otdel_kadrovDataSetTableAdapters.StaffListTableAdapter staffListTableAdapter;
     }
 }

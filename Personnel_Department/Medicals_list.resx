@@ -124,7 +124,7 @@
     <value>312, 17</value>
   </metadata>
   <data name="fill_the_table_comm.CommandText" xml:space="preserve">
-    <value>SELECT        Worker.FIO_worker AS ФИО, Medical.Data_start_medical AS [Дата начала], Medical.Data_end_medical AS [Дата окончания]
+    <value>SELECT        Medical.Num_medical AS [Номер больничного], Worker.FIO_worker AS ФИО, Medical.Data_start_medical AS [Дата начала], Medical.Data_end_medical AS [Дата окончания]
 FROM            Worker INNER JOIN
                          Medical ON Worker.ID_worker = Medical.ID_worker</value>
   </data>

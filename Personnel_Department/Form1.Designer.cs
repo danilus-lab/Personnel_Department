@@ -61,6 +61,7 @@
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.fill_the_tabel_command = new System.Data.SqlClient.SqlCommand();
             this.refresh_button = new System.Windows.Forms.Button();
+            this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerDataGridView)).BeginInit();
@@ -361,12 +362,20 @@
             this.refresh_button.UseVisualStyleBackColor = true;
             this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
             // 
+            // fillBy1ToolStripButton
+            // 
+            this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
+            this.fillBy1ToolStripButton.Size = new System.Drawing.Size(45, 22);
+            this.fillBy1ToolStripButton.Text = "FillBy1";
+            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
+            // 
             // List_Of_Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1210, 452);
+            this.ClientSize = new System.Drawing.Size(1224, 467);
             this.Controls.Add(this.refresh_button);
             this.Controls.Add(this.edit_worker_button);
             this.Controls.Add(this.find_button);
@@ -422,6 +431,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn workreceptiondateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataterminationDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button refresh_button;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
     }
 }
 
