@@ -199,7 +199,7 @@ SELECT Num_mission, Num_order, ID_worker, Place_order, Data_start_mission, Data_
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrderTableAdapter" GeneratorDataComponentClassName="OrderTableAdapter" Name="Order" UserDataComponentName="OrderTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectName="Otdel_kadrov.dbo.[Order]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Order] WHERE (([Num_order] = @Original_Num_order) AND ([Type_order] = @Original_Type_order) AND ([Data_order] = @Original_Data_order) AND ((@IsNull_ID_worker = 1 AND [ID_worker] IS NULL) OR ([ID_worker] = @Original_ID_worker)))</CommandText>
@@ -226,7 +226,9 @@ SELECT Num_order, Type_order, Data_order, ID_worker FROM [Order] WHERE (Num_orde
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Num_order, Type_order, Data_order, ID_worker FROM dbo.[Order]</CommandText>
+                    <CommandText>SELECT        [Order].Num_order, Worker.FIO_worker, [Order].Type_order, [Order].Data_order
+FROM            [Order] INNER JOIN
+                         Worker ON [Order].ID_worker = Worker.ID_worker</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -251,9 +253,9 @@ SELECT Num_order, Type_order, Data_order, ID_worker FROM [Order] WHERE (Num_orde
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Num_order" DataSetColumn="Num_order" />
+              <Mapping SourceColumn="FIO_worker" DataSetColumn="FIO_worker" />
               <Mapping SourceColumn="Type_order" DataSetColumn="Type_order" />
               <Mapping SourceColumn="Data_order" DataSetColumn="Data_order" />
-              <Mapping SourceColumn="ID_worker" DataSetColumn="ID_worker" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -457,10 +459,11 @@ SELECT Num_vacation, Num_order, ID_worker, Data_start_vacation, Data_end_vacatio
               <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectName="Otdel_kadrov.dbo.Worker" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Worker] WHERE (([ID_worker] = @Original_ID_worker) AND ([FIO_worker] = @Original_FIO_worker) AND ([Dep] = @Original_Dep) AND ((@IsNull_Post_name = 1 AND [Post_name] IS NULL) OR ([Post_name] = @Original_Post_name)) AND ((@IsNull_Data_birth = 1 AND [Data_birth] IS NULL) OR ([Data_birth] = @Original_Data_birth)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Allowance = 1 AND [Allowance] IS NULL) OR ([Allowance] = @Original_Allowance)) AND ((@IsNull_Stage = 1 AND [Stage] IS NULL) OR ([Stage] = @Original_Stage)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ([Work_reception_date] = @Original_Work_reception_date) AND ((@IsNull_Data_termination = 1 AND [Data_termination] IS NULL) OR ([Data_termination] = @Original_Data_termination)))</CommandText>
+                    <CommandText>DELETE FROM [Worker] WHERE (([ID_worker] = @Original_ID_worker) AND ([FIO_worker] = @Original_FIO_worker) AND ([Phone_number] = @Original_Phone_number) AND ([Dep] = @Original_Dep) AND ((@IsNull_Post_name = 1 AND [Post_name] IS NULL) OR ([Post_name] = @Original_Post_name)) AND ((@IsNull_Data_birth = 1 AND [Data_birth] IS NULL) OR ([Data_birth] = @Original_Data_birth)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Allowance = 1 AND [Allowance] IS NULL) OR ([Allowance] = @Original_Allowance)) AND ((@IsNull_Stage = 1 AND [Stage] IS NULL) OR ([Stage] = @Original_Stage)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ([Work_reception_date] = @Original_Work_reception_date))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID_worker" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_worker" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_FIO_worker" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FIO_worker" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone_number" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone_number" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Dep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Dep" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Post_name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Post_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -475,18 +478,16 @@ SELECT Num_vacation, Num_order, ID_worker, Data_start_vacation, Data_end_vacatio
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Work_reception_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Work_reception_date" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Data_termination" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Data_termination" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Worker] ([ID_worker], [FIO_worker], [Dep], [Post_name], [Data_birth], [Sex], [Allowance], [Stage], [Status], [Work_reception_date], [Data_termination]) VALUES (@ID_worker, @FIO_worker, @Dep, @Post_name, @Data_birth, @Sex, @Allowance, @Stage, @Status, @Work_reception_date, @Data_termination);
-SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date, Data_termination FROM Worker WHERE (ID_worker = @ID_worker)</CommandText>
+                    <CommandText>INSERT INTO [Worker] ([FIO_worker], [Phone_number], [Dep], [Post_name], [Data_birth], [Sex], [Allowance], [Stage], [Status], [Work_reception_date]) VALUES (@FIO_worker, @Phone_number, @Dep, @Post_name, @Data_birth, @Sex, @Allowance, @Stage, @Status, @Work_reception_date);
+SELECT ID_worker, FIO_worker, Phone_number, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date FROM Worker WHERE (ID_worker = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ID_worker" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_worker" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@FIO_worker" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FIO_worker" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone_number" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone_number" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Dep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Dep" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Post_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Data_birth" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_birth" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -495,13 +496,12 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Stage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Stage" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Work_reception_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Work_reception_date" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Data_termination" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID_worker, FIO_worker, Phone_number, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date
 FROM            Worker
 WHERE        (Data_termination IS NULL)</CommandText>
                     <Parameters />
@@ -509,11 +509,11 @@ WHERE        (Data_termination IS NULL)</CommandText>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Worker] SET [ID_worker] = @ID_worker, [FIO_worker] = @FIO_worker, [Dep] = @Dep, [Post_name] = @Post_name, [Data_birth] = @Data_birth, [Sex] = @Sex, [Allowance] = @Allowance, [Stage] = @Stage, [Status] = @Status, [Work_reception_date] = @Work_reception_date, [Data_termination] = @Data_termination WHERE (([ID_worker] = @Original_ID_worker) AND ([FIO_worker] = @Original_FIO_worker) AND ([Dep] = @Original_Dep) AND ((@IsNull_Post_name = 1 AND [Post_name] IS NULL) OR ([Post_name] = @Original_Post_name)) AND ((@IsNull_Data_birth = 1 AND [Data_birth] IS NULL) OR ([Data_birth] = @Original_Data_birth)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Allowance = 1 AND [Allowance] IS NULL) OR ([Allowance] = @Original_Allowance)) AND ((@IsNull_Stage = 1 AND [Stage] IS NULL) OR ([Stage] = @Original_Stage)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ([Work_reception_date] = @Original_Work_reception_date) AND ((@IsNull_Data_termination = 1 AND [Data_termination] IS NULL) OR ([Data_termination] = @Original_Data_termination)));
-SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date, Data_termination FROM Worker WHERE (ID_worker = @ID_worker)</CommandText>
+                    <CommandText>UPDATE [Worker] SET [FIO_worker] = @FIO_worker, [Phone_number] = @Phone_number, [Dep] = @Dep, [Post_name] = @Post_name, [Data_birth] = @Data_birth, [Sex] = @Sex, [Allowance] = @Allowance, [Stage] = @Stage, [Status] = @Status, [Work_reception_date] = @Work_reception_date WHERE (([ID_worker] = @Original_ID_worker) AND ([FIO_worker] = @Original_FIO_worker) AND ([Phone_number] = @Original_Phone_number) AND ([Dep] = @Original_Dep) AND ((@IsNull_Post_name = 1 AND [Post_name] IS NULL) OR ([Post_name] = @Original_Post_name)) AND ((@IsNull_Data_birth = 1 AND [Data_birth] IS NULL) OR ([Data_birth] = @Original_Data_birth)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Allowance = 1 AND [Allowance] IS NULL) OR ([Allowance] = @Original_Allowance)) AND ((@IsNull_Stage = 1 AND [Stage] IS NULL) OR ([Stage] = @Original_Stage)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ([Work_reception_date] = @Original_Work_reception_date));
+SELECT ID_worker, FIO_worker, Phone_number, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date FROM Worker WHERE (ID_worker = @ID_worker)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ID_worker" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_worker" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@FIO_worker" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FIO_worker" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Phone_number" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone_number" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Dep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Dep" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Post_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Data_birth" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_birth" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -522,9 +522,9 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Stage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Stage" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Work_reception_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Work_reception_date" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Data_termination" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID_worker" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_worker" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_FIO_worker" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FIO_worker" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Phone_number" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Phone_number" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Dep" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Dep" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Post_name" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Post_name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Post_name" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -539,8 +539,7 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Work_reception_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Work_reception_date" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Data_termination" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Data_termination" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Data_termination" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID_worker" ColumnName="ID_worker" DataSourceName="Otdel_kadrov.dbo.Worker" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID_worker" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_worker" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -557,12 +556,13 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
               <Mapping SourceColumn="Stage" DataSetColumn="Stage" />
               <Mapping SourceColumn="Status" DataSetColumn="Status" />
               <Mapping SourceColumn="Work_reception_date" DataSetColumn="Work_reception_date" />
+              <Mapping SourceColumn="Phone_number" DataSetColumn="Phone_number" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectName="Otdel_kadrov.dbo.Worker" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date, Data_termination FROM dbo.Worker where Data_termination = null</CommandText>
+                    <CommandText>SELECT Allowance, Data_birth, Dep, FIO_worker, ID_worker, Phone_number, Post_name, Sex, Stage, Status, Work_reception_date FROM Worker WHERE (Data_termination = NULL)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -570,12 +570,33 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
               <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectName="Otdel_kadrov.dbo.Worker" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage, Status, Work_reception_date, Data_termination FROM dbo.Worker where Data_termination = null</CommandText>
+                    <CommandText>SELECT Allowance, Data_birth, Dep, FIO_worker, ID_worker, Phone_number, Post_name, Sex, Stage, Status, Work_reception_date FROM Worker WHERE (Data_termination = NULL)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArchiveTableAdapter" GeneratorDataComponentClassName="ArchiveTableAdapter" Name="Archive" UserDataComponentName="ArchiveTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Otdel_kadrovConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Archive.Num_order, Worker.FIO_worker, Archive.Type_order, Archive.Data_order
+FROM            Archive INNER JOIN
+                         Worker ON Archive.ID_worker = Worker.ID_worker</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Num_order" DataSetColumn="Num_order" />
+              <Mapping SourceColumn="Type_order" DataSetColumn="Type_order" />
+              <Mapping SourceColumn="Data_order" DataSetColumn="Data_order" />
+              <Mapping SourceColumn="FIO_worker" DataSetColumn="FIO_worker" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -626,7 +647,14 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
         <xs:element name="Order" msprop:Generator_RowEvHandlerName="OrderRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderRowDeleted" msprop:Generator_RowDeletingName="OrderRowDeleting" msprop:Generator_RowEvArgName="OrderRowChangeEvent" msprop:Generator_TablePropName="Order" msprop:Generator_RowChangedName="OrderRowChanged" msprop:Generator_UserTableName="Order" msprop:Generator_RowChangingName="OrderRowChanging" msprop:Generator_RowClassName="OrderRow" msprop:Generator_TableClassName="OrderDataTable" msprop:Generator_TableVarName="tableOrder">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Num_order" msprop:Generator_ColumnPropNameInTable="Num_orderColumn" msprop:Generator_ColumnPropNameInRow="Num_order" msprop:Generator_UserColumnName="Num_order" msprop:Generator_ColumnVarNameInTable="columnNum_order" type="xs:int" />
+              <xs:element name="Num_order" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="Num_orderColumn" msprop:Generator_ColumnPropNameInRow="Num_order" msprop:Generator_UserColumnName="Num_order" msprop:Generator_ColumnVarNameInTable="columnNum_order" type="xs:int" />
+              <xs:element name="FIO_worker" msprop:Generator_ColumnPropNameInTable="FIO_workerColumn" msprop:Generator_ColumnPropNameInRow="FIO_worker" msprop:Generator_UserColumnName="FIO_worker" msprop:Generator_ColumnVarNameInTable="columnFIO_worker">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Type_order" msprop:Generator_ColumnPropNameInTable="Type_orderColumn" msprop:Generator_ColumnPropNameInRow="Type_order" msprop:Generator_UserColumnName="Type_order" msprop:Generator_ColumnVarNameInTable="columnType_order">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -635,7 +663,6 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Data_order" msprop:Generator_ColumnPropNameInTable="Data_orderColumn" msprop:Generator_ColumnPropNameInRow="Data_order" msprop:Generator_UserColumnName="Data_order" msprop:Generator_ColumnVarNameInTable="columnData_order" type="xs:dateTime" />
-              <xs:element name="ID_worker" msprop:Generator_ColumnPropNameInTable="ID_workerColumn" msprop:Generator_ColumnPropNameInRow="ID_worker" msprop:Generator_UserColumnName="ID_worker" msprop:Generator_ColumnVarNameInTable="columnID_worker" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -727,6 +754,35 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Work_reception_date" msprop:Generator_ColumnPropNameInTable="Work_reception_dateColumn" msprop:Generator_ColumnPropNameInRow="Work_reception_date" msprop:Generator_UserColumnName="Work_reception_date" msprop:Generator_ColumnVarNameInTable="columnWork_reception_date" type="xs:dateTime" />
+              <xs:element name="Phone_number" msprop:Generator_ColumnPropNameInRow="Phone_number" msprop:Generator_ColumnPropNameInTable="Phone_numberColumn" msprop:Generator_ColumnVarNameInTable="columnPhone_number" msprop:Generator_UserColumnName="Phone_number">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Archive" msprop:Generator_RowEvHandlerName="ArchiveRowChangeEventHandler" msprop:Generator_RowDeletedName="ArchiveRowDeleted" msprop:Generator_RowDeletingName="ArchiveRowDeleting" msprop:Generator_RowEvArgName="ArchiveRowChangeEvent" msprop:Generator_TablePropName="Archive" msprop:Generator_RowChangedName="ArchiveRowChanged" msprop:Generator_UserTableName="Archive" msprop:Generator_RowChangingName="ArchiveRowChanging" msprop:Generator_RowClassName="ArchiveRow" msprop:Generator_TableClassName="ArchiveDataTable" msprop:Generator_TableVarName="tableArchive">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Num_order" msprop:Generator_ColumnPropNameInTable="Num_orderColumn" msprop:Generator_ColumnPropNameInRow="Num_order" msprop:Generator_UserColumnName="Num_order" msprop:Generator_ColumnVarNameInTable="columnNum_order" type="xs:int" />
+              <xs:element name="Type_order" msprop:Generator_ColumnPropNameInTable="Type_orderColumn" msprop:Generator_ColumnPropNameInRow="Type_order" msprop:Generator_UserColumnName="Type_order" msprop:Generator_ColumnVarNameInTable="columnType_order">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Data_order" msprop:Generator_ColumnPropNameInTable="Data_orderColumn" msprop:Generator_ColumnPropNameInRow="Data_order" msprop:Generator_UserColumnName="Data_order" msprop:Generator_ColumnVarNameInTable="columnData_order" type="xs:dateTime" />
+              <xs:element name="FIO_worker" msprop:Generator_UserColumnName="FIO_worker" msprop:Generator_ColumnPropNameInTable="FIO_workerColumn" msprop:Generator_ColumnPropNameInRow="FIO_worker" msprop:Generator_ColumnVarNameInTable="columnFIO_worker">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -769,14 +825,10 @@ SELECT ID_worker, FIO_worker, Dep, Post_name, Data_birth, Sex, Allowance, Stage,
     <xs:appinfo>
       <msdata:Relationship name="FK__Отдел__Начальник__2B3F6F97" msdata:parent="Worker" msdata:child="Dep" msdata:parentkey="ID_worker" msdata:childkey="Boss" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Dep" msprop:Generator_RelationVarName="relationFK__Отдел__Начальник__2B3F6F97" msprop:Generator_ChildPropName="GetDepRows" msprop:Generator_UserRelationName="FK__Отдел__Начальник__2B3F6F97" msprop:Generator_ParentPropName="WorkerRow" />
       <msdata:Relationship name="FK__Больничны__ID_ра__04E4BC85" msdata:parent="Worker" msdata:child="Medical" msdata:parentkey="ID_worker" msdata:childkey="ID_worker" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Medical" msprop:Generator_RelationVarName="relationFK__Больничны__ID_ра__04E4BC85" msprop:Generator_ChildPropName="GetMedicalRows" msprop:Generator_UserRelationName="FK__Больничны__ID_ра__04E4BC85" msprop:Generator_ParentPropName="WorkerRow" />
-      <msdata:Relationship name="FK__Больничны__Номер__05D8E0BE" msdata:parent="Order" msdata:child="Medical" msdata:parentkey="Num_order" msdata:childkey="Num_order" msprop:Generator_UserParentTable="Order" msprop:Generator_UserChildTable="Medical" msprop:Generator_RelationVarName="relationFK__Больничны__Номер__05D8E0BE" msprop:Generator_ChildPropName="GetMedicalRows" msprop:Generator_UserRelationName="FK__Больничны__Номер__05D8E0BE" msprop:Generator_ParentPropName="OrderRow" />
       <msdata:Relationship name="FK__Командиро__ID_ра__09A971A2" msdata:parent="Worker" msdata:child="Mission" msdata:parentkey="ID_worker" msdata:childkey="ID_worker" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Mission" msprop:Generator_RelationVarName="relationFK__Командиро__ID_ра__09A971A2" msprop:Generator_ChildPropName="GetMissionRows" msprop:Generator_UserRelationName="FK__Командиро__ID_ра__09A971A2" msprop:Generator_ParentPropName="WorkerRow" />
-      <msdata:Relationship name="FK__Командиро__Номер__0A9D95DB" msdata:parent="Order" msdata:child="Mission" msdata:parentkey="Num_order" msdata:childkey="Num_order" msprop:Generator_UserParentTable="Order" msprop:Generator_UserChildTable="Mission" msprop:Generator_RelationVarName="relationFK__Командиро__Номер__0A9D95DB" msprop:Generator_ChildPropName="GetMissionRows" msprop:Generator_UserRelationName="FK__Командиро__Номер__0A9D95DB" msprop:Generator_ParentPropName="OrderRow" />
-      <msdata:Relationship name="FK_Приказ_Работник" msdata:parent="Worker" msdata:child="Order" msdata:parentkey="ID_worker" msdata:childkey="ID_worker" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Order" msprop:Generator_RelationVarName="relationFK_Приказ_Работник" msprop:Generator_ChildPropName="GetOrderRows" msprop:Generator_UserRelationName="FK_Приказ_Работник" msprop:Generator_ParentPropName="WorkerRow" />
       <msdata:Relationship name="FK__Штатное_р__Номер__76969D2E" msdata:parent="Dep" msdata:child="StaffList" msdata:parentkey="Num_dep" msdata:childkey="Num_dep" msprop:Generator_UserParentTable="Dep" msprop:Generator_UserChildTable="StaffList" msprop:Generator_RelationVarName="relationFK__Штатное_р__Номер__76969D2E" msprop:Generator_ChildPropName="GetStaffListRows" msprop:Generator_ParentPropName="DepRow" msprop:Generator_UserRelationName="FK__Штатное_р__Номер__76969D2E" />
       <msdata:Relationship name="FK__Заявление__ID_ра__73BA3083" msdata:parent="Worker" msdata:child="Statement" msdata:parentkey="ID_worker" msdata:childkey="ID_worker" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Statement" msprop:Generator_RelationVarName="relationFK__Заявление__ID_ра__73BA3083" msprop:Generator_ChildPropName="GetStatementRows" msprop:Generator_UserRelationName="FK__Заявление__ID_ра__73BA3083" msprop:Generator_ParentPropName="WorkerRow" />
       <msdata:Relationship name="FK__Отпуск__ID_работ__00200768" msdata:parent="Worker" msdata:child="Vacation" msdata:parentkey="ID_worker" msdata:childkey="ID_worker" msprop:Generator_UserParentTable="Worker" msprop:Generator_UserChildTable="Vacation" msprop:Generator_RelationVarName="relationFK__Отпуск__ID_работ__00200768" msprop:Generator_ChildPropName="GetVacationRows" msprop:Generator_UserRelationName="FK__Отпуск__ID_работ__00200768" msprop:Generator_ParentPropName="WorkerRow" />
-      <msdata:Relationship name="FK__Отпуск__Номер_пр__01142BA1" msdata:parent="Order" msdata:child="Vacation" msdata:parentkey="Num_order" msdata:childkey="Num_order" msprop:Generator_UserParentTable="Order" msprop:Generator_UserChildTable="Vacation" msprop:Generator_RelationVarName="relationFK__Отпуск__Номер_пр__01142BA1" msprop:Generator_ChildPropName="GetVacationRows" msprop:Generator_ParentPropName="OrderRow" msprop:Generator_UserRelationName="FK__Отпуск__Номер_пр__01142BA1" />
       <msdata:Relationship name="FK_Работник_Отдел" msdata:parent="Dep" msdata:child="Worker" msdata:parentkey="Num_dep" msdata:childkey="Dep" msprop:Generator_UserParentTable="Dep" msprop:Generator_UserChildTable="Worker" msprop:Generator_RelationVarName="relationFK_Работник_Отдел" msprop:Generator_ChildPropName="GetWorkerRows" msprop:Generator_ParentPropName="DepRow" msprop:Generator_UserRelationName="FK_Работник_Отдел" />
     </xs:appinfo>
   </xs:annotation>

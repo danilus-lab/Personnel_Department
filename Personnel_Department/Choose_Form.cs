@@ -86,5 +86,17 @@ namespace Personnel_Department
             Form frm = new Deps_list();
             frm.Show();
         }
+
+        private void orders_Click(object sender, EventArgs e)
+        {
+            Form frm = new Orders_list();
+            frm.Show();
+        }
+
+        private void archive_Click(object sender, EventArgs e)
+        {
+            Form frm = new Archive_list();
+            frm.Show();
+        }
     }
 }

@@ -58,6 +58,12 @@
     <Compile Include="Add_Worker_Form.Designer.cs">
       <DependentUpon>Add_Worker_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archive_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive_list.Designer.cs">
+      <DependentUpon>Archive_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Change_row_in_staff_list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,15 @@
     <Compile Include="Missions_list.Designer.cs">
       <DependentUpon>Missions_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orders_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders_list.Designer.cs">
+      <DependentUpon>Orders_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otdel_kadrovDataSet.cs">
+      <DependentUpon>Otdel_kadrovDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Otdel_kadrovDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -166,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Worker_Form.resx">
       <DependentUpon>Add_Worker_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archive_list.resx">
+      <DependentUpon>Archive_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Change_row_in_staff_list.resx">
       <DependentUpon>Change_row_in_staff_list.cs</DependentUpon>
@@ -208,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Missions_list.resx">
       <DependentUpon>Missions_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders_list.resx">
+      <DependentUpon>Orders_list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

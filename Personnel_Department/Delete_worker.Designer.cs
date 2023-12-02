@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.workers_listbox = new System.Windows.Forms.ListBox();
             this.workerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.otdel_kadrovDataSet = new Personnel_Department.Otdel_kadrovDataSet();
             this.workerTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.WorkerTableAdapter();
@@ -38,20 +37,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.deleteCommand = new System.Data.SqlClient.SqlCommand();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.OrderTableAdapter();
+            this.tableAdapterManager = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.TableAdapterManager();
+            this.workers_listbox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // workers_listbox
-            // 
-            this.workers_listbox.DataSource = this.workerBindingSource;
-            this.workers_listbox.DisplayMember = "FIO_worker";
-            this.workers_listbox.FormattingEnabled = true;
-            this.workers_listbox.Location = new System.Drawing.Point(7, 12);
-            this.workers_listbox.Name = "workers_listbox";
-            this.workers_listbox.Size = new System.Drawing.Size(397, 329);
-            this.workers_listbox.TabIndex = 0;
-            this.workers_listbox.ValueMember = "ID_worker";
             // 
             // workerBindingSource
             // 
@@ -109,29 +102,61 @@
     "curity=True";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataMember = "Order";
+            this.orderBindingSource.DataSource = this.otdel_kadrovDataSet;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.DepTableAdapter = null;
+            this.tableAdapterManager.MedicalTableAdapter = null;
+            this.tableAdapterManager.MissionTableAdapter = null;
+            this.tableAdapterManager.OrderTableAdapter = this.orderTableAdapter;
+            this.tableAdapterManager.StaffListTableAdapter = null;
+            this.tableAdapterManager.StatementTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Personnel_Department.Otdel_kadrovDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VacationTableAdapter = null;
+            this.tableAdapterManager.WorkerTableAdapter = null;
+            // 
+            // workers_listbox
+            // 
+            this.workers_listbox.DataSource = this.otdel_kadrovDataSet;
+            this.workers_listbox.DisplayMember = "Worker.FIO_worker";
+            this.workers_listbox.FormattingEnabled = true;
+            this.workers_listbox.Location = new System.Drawing.Point(7, 3);
+            this.workers_listbox.Name = "workers_listbox";
+            this.workers_listbox.Size = new System.Drawing.Size(397, 329);
+            this.workers_listbox.TabIndex = 17;
+            this.workers_listbox.ValueMember = "Worker.ID_worker";
+            // 
             // Delete_worker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(416, 450);
+            this.Controls.Add(this.workers_listbox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.workers_listbox);
             this.Name = "Delete_worker";
             this.Text = "Увольнение сотрудника";
             this.Load += new System.EventHandler(this.Delete_worker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox workers_listbox;
         private Otdel_kadrovDataSet otdel_kadrovDataSet;
         private System.Windows.Forms.BindingSource workerBindingSource;
         private Otdel_kadrovDataSetTableAdapters.WorkerTableAdapter workerTableAdapter;
@@ -140,5 +165,9 @@
         private System.Windows.Forms.Button button1;
         private System.Data.SqlClient.SqlCommand deleteCommand;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
+        private System.Windows.Forms.BindingSource orderBindingSource;
+        private Otdel_kadrovDataSetTableAdapters.OrderTableAdapter orderTableAdapter;
+        private Otdel_kadrovDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ListBox workers_listbox;
     }
 }

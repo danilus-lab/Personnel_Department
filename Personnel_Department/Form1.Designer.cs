@@ -34,17 +34,6 @@
             this.workerTableAdapter = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.WorkerTableAdapter();
             this.tableAdapterManager = new Personnel_Department.Otdel_kadrovDataSetTableAdapters.TableAdapterManager();
             this.workerDataGridView = new System.Windows.Forms.DataGridView();
-            this.iDworkerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIOworkerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.databirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.allowanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workreceptiondateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataterminationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sort_groupBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sort_button = new System.Windows.Forms.Button();
@@ -62,6 +51,17 @@
             this.fill_the_tabel_command = new System.Data.SqlClient.SqlCommand();
             this.refresh_button = new System.Windows.Forms.Button();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.iDworkerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fIOworkerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allowanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workreceptiondateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.otdel_kadrovDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workerDataGridView)).BeginInit();
@@ -105,6 +105,7 @@
             this.workerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDworkerDataGridViewTextBoxColumn,
             this.fIOworkerDataGridViewTextBoxColumn,
+            this.Phone_number,
             this.depDataGridViewTextBoxColumn,
             this.postnameDataGridViewTextBoxColumn,
             this.databirthDataGridViewTextBoxColumn,
@@ -112,8 +113,7 @@
             this.allowanceDataGridViewTextBoxColumn,
             this.stageDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.workreceptiondateDataGridViewTextBoxColumn,
-            this.dataterminationDataGridViewTextBoxColumn});
+            this.workreceptiondateDataGridViewTextBoxColumn});
             this.workerDataGridView.DataSource = this.workerBindingSource;
             this.workerDataGridView.Location = new System.Drawing.Point(12, 28);
             this.workerDataGridView.Name = "workerDataGridView";
@@ -121,83 +121,6 @@
             this.workerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.workerDataGridView.Size = new System.Drawing.Size(1044, 373);
             this.workerDataGridView.TabIndex = 1;
-            // 
-            // iDworkerDataGridViewTextBoxColumn
-            // 
-            this.iDworkerDataGridViewTextBoxColumn.DataPropertyName = "ID_worker";
-            this.iDworkerDataGridViewTextBoxColumn.HeaderText = "Номер работника";
-            this.iDworkerDataGridViewTextBoxColumn.Name = "iDworkerDataGridViewTextBoxColumn";
-            this.iDworkerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fIOworkerDataGridViewTextBoxColumn
-            // 
-            this.fIOworkerDataGridViewTextBoxColumn.DataPropertyName = "FIO_worker";
-            this.fIOworkerDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.fIOworkerDataGridViewTextBoxColumn.Name = "fIOworkerDataGridViewTextBoxColumn";
-            this.fIOworkerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // depDataGridViewTextBoxColumn
-            // 
-            this.depDataGridViewTextBoxColumn.DataPropertyName = "Dep";
-            this.depDataGridViewTextBoxColumn.HeaderText = "Номер отдела";
-            this.depDataGridViewTextBoxColumn.Name = "depDataGridViewTextBoxColumn";
-            this.depDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // postnameDataGridViewTextBoxColumn
-            // 
-            this.postnameDataGridViewTextBoxColumn.DataPropertyName = "Post_name";
-            this.postnameDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.postnameDataGridViewTextBoxColumn.Name = "postnameDataGridViewTextBoxColumn";
-            this.postnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // databirthDataGridViewTextBoxColumn
-            // 
-            this.databirthDataGridViewTextBoxColumn.DataPropertyName = "Data_birth";
-            this.databirthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            this.databirthDataGridViewTextBoxColumn.Name = "databirthDataGridViewTextBoxColumn";
-            this.databirthDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sexDataGridViewTextBoxColumn
-            // 
-            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
-            this.sexDataGridViewTextBoxColumn.HeaderText = "Пол";
-            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
-            this.sexDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // allowanceDataGridViewTextBoxColumn
-            // 
-            this.allowanceDataGridViewTextBoxColumn.DataPropertyName = "Allowance";
-            this.allowanceDataGridViewTextBoxColumn.HeaderText = "Надбавка";
-            this.allowanceDataGridViewTextBoxColumn.Name = "allowanceDataGridViewTextBoxColumn";
-            this.allowanceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stageDataGridViewTextBoxColumn
-            // 
-            this.stageDataGridViewTextBoxColumn.DataPropertyName = "Stage";
-            this.stageDataGridViewTextBoxColumn.HeaderText = "Стаж";
-            this.stageDataGridViewTextBoxColumn.Name = "stageDataGridViewTextBoxColumn";
-            this.stageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // workreceptiondateDataGridViewTextBoxColumn
-            // 
-            this.workreceptiondateDataGridViewTextBoxColumn.DataPropertyName = "Work_reception_date";
-            this.workreceptiondateDataGridViewTextBoxColumn.HeaderText = "Дата принятия на работу";
-            this.workreceptiondateDataGridViewTextBoxColumn.Name = "workreceptiondateDataGridViewTextBoxColumn";
-            this.workreceptiondateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataterminationDataGridViewTextBoxColumn
-            // 
-            this.dataterminationDataGridViewTextBoxColumn.DataPropertyName = "Data_termination";
-            this.dataterminationDataGridViewTextBoxColumn.HeaderText = "Дата увольнения";
-            this.dataterminationDataGridViewTextBoxColumn.Name = "dataterminationDataGridViewTextBoxColumn";
-            this.dataterminationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sort_groupBox
             // 
@@ -370,6 +293,83 @@
             this.fillBy1ToolStripButton.Text = "FillBy1";
             this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
             // 
+            // iDworkerDataGridViewTextBoxColumn
+            // 
+            this.iDworkerDataGridViewTextBoxColumn.DataPropertyName = "ID_worker";
+            this.iDworkerDataGridViewTextBoxColumn.HeaderText = "Номер работника";
+            this.iDworkerDataGridViewTextBoxColumn.Name = "iDworkerDataGridViewTextBoxColumn";
+            this.iDworkerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fIOworkerDataGridViewTextBoxColumn
+            // 
+            this.fIOworkerDataGridViewTextBoxColumn.DataPropertyName = "FIO_worker";
+            this.fIOworkerDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.fIOworkerDataGridViewTextBoxColumn.Name = "fIOworkerDataGridViewTextBoxColumn";
+            this.fIOworkerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Phone_number
+            // 
+            this.Phone_number.DataPropertyName = "Phone_number";
+            this.Phone_number.HeaderText = "Номер телефона";
+            this.Phone_number.Name = "Phone_number";
+            this.Phone_number.ReadOnly = true;
+            // 
+            // depDataGridViewTextBoxColumn
+            // 
+            this.depDataGridViewTextBoxColumn.DataPropertyName = "Dep";
+            this.depDataGridViewTextBoxColumn.HeaderText = "Номер отдела";
+            this.depDataGridViewTextBoxColumn.Name = "depDataGridViewTextBoxColumn";
+            this.depDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // postnameDataGridViewTextBoxColumn
+            // 
+            this.postnameDataGridViewTextBoxColumn.DataPropertyName = "Post_name";
+            this.postnameDataGridViewTextBoxColumn.HeaderText = "Должность";
+            this.postnameDataGridViewTextBoxColumn.Name = "postnameDataGridViewTextBoxColumn";
+            this.postnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // databirthDataGridViewTextBoxColumn
+            // 
+            this.databirthDataGridViewTextBoxColumn.DataPropertyName = "Data_birth";
+            this.databirthDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            this.databirthDataGridViewTextBoxColumn.Name = "databirthDataGridViewTextBoxColumn";
+            this.databirthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            this.sexDataGridViewTextBoxColumn.HeaderText = "Пол";
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            this.sexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // allowanceDataGridViewTextBoxColumn
+            // 
+            this.allowanceDataGridViewTextBoxColumn.DataPropertyName = "Allowance";
+            this.allowanceDataGridViewTextBoxColumn.HeaderText = "Надбавка";
+            this.allowanceDataGridViewTextBoxColumn.Name = "allowanceDataGridViewTextBoxColumn";
+            this.allowanceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stageDataGridViewTextBoxColumn
+            // 
+            this.stageDataGridViewTextBoxColumn.DataPropertyName = "Stage";
+            this.stageDataGridViewTextBoxColumn.HeaderText = "Стаж";
+            this.stageDataGridViewTextBoxColumn.Name = "stageDataGridViewTextBoxColumn";
+            this.stageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Статус";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // workreceptiondateDataGridViewTextBoxColumn
+            // 
+            this.workreceptiondateDataGridViewTextBoxColumn.DataPropertyName = "Work_reception_date";
+            this.workreceptiondateDataGridViewTextBoxColumn.HeaderText = "Дата принятия на работу";
+            this.workreceptiondateDataGridViewTextBoxColumn.Name = "workreceptiondateDataGridViewTextBoxColumn";
+            this.workreceptiondateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // List_Of_Workers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,8 +419,12 @@
         private System.Windows.Forms.Button edit_worker_button;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Data.SqlClient.SqlCommand fill_the_tabel_command;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataterminationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button refresh_button;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDworkerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fIOworkerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn depDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databirthDataGridViewTextBoxColumn;
@@ -429,9 +433,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn workreceptiondateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataterminationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button refresh_button;
-        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
     }
 }
 

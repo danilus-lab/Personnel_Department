@@ -153,7 +153,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Name = "Edit_mission";
-            this.Text = "Edit_mission";
+            this.Text = "Редактирование командировки";
             this.ResumeLayout(false);
             this.PerformLayout();
 

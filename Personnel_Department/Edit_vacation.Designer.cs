@@ -132,7 +132,7 @@
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "Edit_vacation";
-            this.Text = "Edit_vacation";
+            this.Text = "Редактирование отпуска";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -132,7 +132,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Name = "Edit_medical";
-            this.Text = "Edit_medical";
+            this.Text = "Редактирование больничного";
             this.ResumeLayout(false);
             this.PerformLayout();
 

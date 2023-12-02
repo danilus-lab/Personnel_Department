@@ -41,9 +41,11 @@
             this.vacations = new System.Windows.Forms.ToolStripMenuItem();
             this.medicals = new System.Windows.Forms.ToolStripMenuItem();
             this.missions = new System.Windows.Forms.ToolStripMenuItem();
+            this.dep = new System.Windows.Forms.ToolStripMenuItem();
+            this.orders = new System.Windows.Forms.ToolStripMenuItem();
+            this.archive = new System.Windows.Forms.ToolStripMenuItem();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.check_status = new System.Data.SqlClient.SqlCommand();
-            this.dep = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.65829F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.34171F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 295F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 298F));
             this.tableLayoutPanel1.Controls.Add(this.new_vacation, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.delete_worker, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.new_medical, 2, 1);
@@ -75,7 +77,7 @@
             // new_vacation
             // 
             this.new_vacation.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_vacation.Location = new System.Drawing.Point(328, 3);
+            this.new_vacation.Location = new System.Drawing.Point(325, 3);
             this.new_vacation.Name = "new_vacation";
             this.new_vacation.Size = new System.Drawing.Size(280, 102);
             this.new_vacation.TabIndex = 1;
@@ -88,7 +90,7 @@
             this.delete_worker.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_worker.Location = new System.Drawing.Point(3, 111);
             this.delete_worker.Name = "delete_worker";
-            this.delete_worker.Size = new System.Drawing.Size(260, 102);
+            this.delete_worker.Size = new System.Drawing.Size(257, 102);
             this.delete_worker.TabIndex = 2;
             this.delete_worker.Text = "Уволить сотрудника";
             this.delete_worker.UseVisualStyleBackColor = true;
@@ -97,7 +99,7 @@
             // new_medical
             // 
             this.new_medical.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_medical.Location = new System.Drawing.Point(328, 111);
+            this.new_medical.Location = new System.Drawing.Point(325, 111);
             this.new_medical.Name = "new_medical";
             this.new_medical.Size = new System.Drawing.Size(280, 102);
             this.new_medical.TabIndex = 3;
@@ -110,7 +112,7 @@
             this.staff_list.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staff_list.Location = new System.Drawing.Point(3, 219);
             this.staff_list.Name = "staff_list";
-            this.staff_list.Size = new System.Drawing.Size(260, 104);
+            this.staff_list.Size = new System.Drawing.Size(257, 104);
             this.staff_list.TabIndex = 4;
             this.staff_list.Text = "Штатное расписание";
             this.staff_list.UseVisualStyleBackColor = true;
@@ -119,7 +121,7 @@
             // new_trip
             // 
             this.new_trip.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_trip.Location = new System.Drawing.Point(328, 219);
+            this.new_trip.Location = new System.Drawing.Point(325, 219);
             this.new_trip.Name = "new_trip";
             this.new_trip.Size = new System.Drawing.Size(280, 104);
             this.new_trip.TabIndex = 5;
@@ -132,7 +134,7 @@
             this.add_worker.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_worker.Location = new System.Drawing.Point(3, 3);
             this.add_worker.Name = "add_worker";
-            this.add_worker.Size = new System.Drawing.Size(260, 102);
+            this.add_worker.Size = new System.Drawing.Size(257, 102);
             this.add_worker.TabIndex = 0;
             this.add_worker.Text = "Добавить сотрудника";
             this.add_worker.UseVisualStyleBackColor = true;
@@ -165,7 +167,9 @@
             this.vacations,
             this.medicals,
             this.missions,
-            this.dep});
+            this.dep,
+            this.orders,
+            this.archive});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(835, 24);
@@ -193,6 +197,27 @@
             this.missions.Text = "Список командировок";
             this.missions.Click += new System.EventHandler(this.missions_Click);
             // 
+            // dep
+            // 
+            this.dep.Name = "dep";
+            this.dep.Size = new System.Drawing.Size(107, 20);
+            this.dep.Text = "Список отделов";
+            this.dep.Click += new System.EventHandler(this.dep_Click);
+            // 
+            // orders
+            // 
+            this.orders.Name = "orders";
+            this.orders.Size = new System.Drawing.Size(114, 20);
+            this.orders.Text = "Список приказов";
+            this.orders.Click += new System.EventHandler(this.orders_Click);
+            // 
+            // archive
+            // 
+            this.archive.Name = "archive";
+            this.archive.Size = new System.Drawing.Size(107, 20);
+            this.archive.Text = "Архив приказов";
+            this.archive.Click += new System.EventHandler(this.archive_Click);
+            // 
             // sqlConnection1
             // 
             this.sqlConnection1.ConnectionString = "Data Source=DESKTOP-T003JCT\\SQLEXPRESS;Initial Catalog=Otdel_kadrov;Integrated Se" +
@@ -204,13 +229,6 @@
             this.check_status.CommandText = "Update_status";
             this.check_status.CommandType = System.Data.CommandType.StoredProcedure;
             this.check_status.Connection = this.sqlConnection1;
-            // 
-            // dep
-            // 
-            this.dep.Name = "dep";
-            this.dep.Size = new System.Drawing.Size(107, 20);
-            this.dep.Text = "Список отделов";
-            this.dep.Click += new System.EventHandler(this.dep_Click);
             // 
             // Choose_Form
             // 
@@ -251,5 +269,7 @@
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private System.Data.SqlClient.SqlCommand check_status;
         private System.Windows.Forms.ToolStripMenuItem dep;
+        private System.Windows.Forms.ToolStripMenuItem orders;
+        private System.Windows.Forms.ToolStripMenuItem archive;
     }
 }

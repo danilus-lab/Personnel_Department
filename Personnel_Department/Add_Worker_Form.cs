@@ -22,6 +22,7 @@ namespace Personnel_Department
         {
             sex_comboBox.SelectedIndex = 1;
             addCommand.Parameters["@Fio"].Value = fio_textBox.Text;
+            addCommand.Parameters["@phone"].Value = phone_number.Text;
             addCommand.Parameters["@Dep"].Value = dep_comboBox.SelectedValue;
             addCommand.Parameters["@Date_receprion"].Value = dateTimePicker.Value;
             addCommand.Parameters["@Post_name"].Value = post_name_combo.SelectedValue;
@@ -29,20 +30,63 @@ namespace Personnel_Department
             addCommand.Parameters["@Sex"].Value = sex_comboBox.SelectedItem.ToString();
             addCommand.Parameters["@Stage"].Value = stage_textbox.Text;
 
-            if (fio_textBox.Text != "" && dep_comboBox.SelectedValue != "" && dateTimePicker.Text != "" && post_name_combo.SelectedValue != "" && stage_textbox.Text != "")
-            {
-                myConnection.Open();
-                addCommand.ExecuteNonQuery();
-                myConnection.Close();
+            check_phone_comm.Parameters["@phone"].Value = phone_number.Text;
 
+            DateTime birthDate = birth_date.Value;
+            DateTime today = DateTime.Today;
+
+            int age = today.Year - birthDate.Year;
+
+            if (birthDate.Date > today.AddYears(-age)) age--;
+
+            if (age < 18)
+            {
                 MessageBox.Show(
-                "Работник успешно добавлен",
-                "Успех",
+                "Работник должен быть совершеннолетним!",
+                "Ошибка",
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Information,
+                MessageBoxIcon.Error,
                 MessageBoxDefaultButton.Button1,
                 MessageBoxOptions.DefaultDesktopOnly
                 );
+            }
+
+            else if (phone_number.Text != "" && fio_textBox.Text != "" && dep_comboBox.SelectedValue != "" && dateTimePicker.Text != "" && post_name_combo.SelectedValue != "" && stage_textbox.Text != "")
+            {
+                myConnection.Open();
+
+                check_phone_comm.ExecuteNonQuery();
+
+                string result = Convert.ToString(check_phone_comm.Parameters["@message"].Value);
+
+                if (result == "можно")
+                {
+                    addCommand.ExecuteNonQuery();
+                    myConnection.Close();
+                    MessageBox.Show(
+                    "Работник успешно добавлен",
+                    "Успех",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+                else
+                {
+                    myConnection.Close();
+                    MessageBox.Show(
+                    "Номер телефона не уникален!",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+
+
+                
             }
             else
             {

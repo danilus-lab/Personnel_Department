@@ -99,8 +99,9 @@ namespace Personnel_Department
                 string num_dep = selectedRow.Cells["depDataGridViewTextBoxColumn"].Value.ToString();
                 string post_name = selectedRow.Cells["postnameDataGridViewTextBoxColumn"].Value.ToString();
                 string allowance = selectedRow.Cells["allowanceDataGridViewTextBoxColumn"].Value.ToString();
+                string phone = selectedRow.Cells["Phone_number"].Value.ToString();
 
-                Form frm = new Edit_worker(num_worker, fio, num_dep, post_name, allowance);
+                Form frm = new Edit_worker(num_worker, phone, fio, num_dep, post_name, allowance);
                 frm.Show();
             }
         }
