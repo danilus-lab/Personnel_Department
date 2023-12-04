@@ -99,7 +99,8 @@
             new System.Data.SqlClient.SqlParameter("@Data_birth", System.Data.SqlDbType.DateTime),
             new System.Data.SqlClient.SqlParameter("@Sex", System.Data.SqlDbType.VarChar, 1),
             new System.Data.SqlClient.SqlParameter("@Stage", System.Data.SqlDbType.Int),
-            new System.Data.SqlClient.SqlParameter("@phone", System.Data.SqlDbType.VarChar, 17)});
+            new System.Data.SqlClient.SqlParameter("@phone", System.Data.SqlDbType.VarChar, 17),
+            new System.Data.SqlClient.SqlParameter("@message", System.Data.SqlDbType.VarChar, 100, System.Data.ParameterDirection.Output, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null)});
             // 
             // add
             // 

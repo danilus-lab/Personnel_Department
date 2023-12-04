@@ -18,9 +18,7 @@ namespace Personnel_Department
             InitializeComponent();
 
             trick.Text = id_record;
-            num_dep_textBox.Text = num_dep;
-            post_name_textBox.Text = post_name;
-            count_units_textBox.Text = count_units;
+            vacant_units_textBox.Text = count_units;
             salary_textBox.Text = salary;
         }
 
@@ -29,9 +27,7 @@ namespace Personnel_Department
             sqlConnection1.Open();
 
             save_row_command.Parameters["@id_record"].Value = Convert.ToInt32(trick.Text);
-            save_row_command.Parameters["@num_dep"].Value = Convert.ToInt32(num_dep_textBox.Text);
-            save_row_command.Parameters["@post_name"].Value = post_name_textBox.Text;
-            save_row_command.Parameters["@count_units"].Value = Convert.ToInt32(count_units_textBox.Text);
+            save_row_command.Parameters["@vacant_units"].Value = Convert.ToInt32(vacant_units_textBox.Text);
             save_row_command.Parameters["@salary"].Value = Convert.ToSingle(salary_textBox.Text);
 
             save_row_command.ExecuteNonQuery();

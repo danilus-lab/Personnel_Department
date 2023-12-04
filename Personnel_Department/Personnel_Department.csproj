@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_new_dep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_new_dep.Designer.cs">
+      <DependentUpon>Add_new_dep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_row_in_staff_list.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="Archive_list.Designer.cs">
       <DependentUpon>Archive_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change_dep_boss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_dep_boss.Designer.cs">
+      <DependentUpon>Change_dep_boss.cs</DependentUpon>
     </Compile>
     <Compile Include="Change_row_in_staff_list.cs">
       <SubType>Form</SubType>
@@ -176,6 +188,9 @@
     <Compile Include="Vacations_list.Designer.cs">
       <DependentUpon>Vacations_list.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_new_dep.resx">
+      <DependentUpon>Add_new_dep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_row_in_staff_list.resx">
       <DependentUpon>Add_row_in_staff_list.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Archive_list.resx">
       <DependentUpon>Archive_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change_dep_boss.resx">
+      <DependentUpon>Change_dep_boss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Change_row_in_staff_list.resx">
       <DependentUpon>Change_row_in_staff_list.cs</DependentUpon>

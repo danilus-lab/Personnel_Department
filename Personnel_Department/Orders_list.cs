@@ -36,7 +36,7 @@ namespace Personnel_Department
 
         private void mission_radio_CheckedChanged(object sender, EventArgs e)
         {
-            orderBindingSource.Filter = "Type_order = 'На командировку'";
+            orderBindingSource.Filter = "Type_order = 'В командировку'";
         }
 
         private void find_button_Click(object sender, EventArgs e)

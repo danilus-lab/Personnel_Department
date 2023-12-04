@@ -19,13 +19,14 @@ namespace Personnel_Department
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            if (num_dep_textBox.Text != "" && post_name_textBox.Text != "" && count_units_textBox.Text != "" && salary_textBox.Text != "")
+            if (post_name_textBox.Text != "" && vacant_units_textBox.Text != "" && salary_textBox.Text != "")
             {
                 sqlConnection1.Open();
 
-                add_Command.Parameters["@num_dep"].Value = Convert.ToInt32(num_dep_textBox.Text);
+                //add_Command.Parameters["@num_dep"].Value = Convert.ToInt32(num_dep_textBox.Text);
+                add_Command.Parameters["@num_dep"].Value = Convert.ToInt32(comboBox1.SelectedValue);
                 add_Command.Parameters["@post_name"].Value = post_name_textBox.Text;
-                add_Command.Parameters["@count_units"].Value = Convert.ToInt32(count_units_textBox.Text);
+                add_Command.Parameters["@vacant_units"].Value = Convert.ToInt32(vacant_units_textBox.Text);
                 add_Command.Parameters["@salary"].Value = Convert.ToSingle(salary_textBox.Text);
 
                 add_Command.ExecuteNonQuery();
@@ -80,6 +81,21 @@ namespace Personnel_Department
         private void post_name_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != 'Ё' && e.KeyChar != 'ё')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Add_row_in_staff_list_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "otdel_kadrovDataSet.Dep". При необходимости она может быть перемещена или удалена.
+            this.depTableAdapter.Fill(this.otdel_kadrovDataSet.Dep);
+
+        }
+
+        private void vacant_units_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }

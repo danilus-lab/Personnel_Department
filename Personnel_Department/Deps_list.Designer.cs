@@ -32,6 +32,9 @@
             this.myConnection = new System.Data.SqlClient.SqlConnection();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.fill_the_table = new System.Data.SqlClient.SqlCommand();
+            this.change_boss_button = new System.Windows.Forms.Button();
+            this.refresh_button = new System.Windows.Forms.Button();
+            this.add_new_dep_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,12 +60,45 @@
             this.fill_the_table.CommandText = resources.GetString("fill_the_table.CommandText");
             this.fill_the_table.Connection = this.myConnection;
             // 
+            // change_boss_button
+            // 
+            this.change_boss_button.Location = new System.Drawing.Point(12, 284);
+            this.change_boss_button.Name = "change_boss_button";
+            this.change_boss_button.Size = new System.Drawing.Size(422, 23);
+            this.change_boss_button.TabIndex = 1;
+            this.change_boss_button.Text = "Изменить начальника отдела";
+            this.change_boss_button.UseVisualStyleBackColor = true;
+            this.change_boss_button.Click += new System.EventHandler(this.change_boss_button_Click);
+            // 
+            // refresh_button
+            // 
+            this.refresh_button.Location = new System.Drawing.Point(12, 343);
+            this.refresh_button.Name = "refresh_button";
+            this.refresh_button.Size = new System.Drawing.Size(422, 23);
+            this.refresh_button.TabIndex = 2;
+            this.refresh_button.Text = "Обновить таблицу";
+            this.refresh_button.UseVisualStyleBackColor = true;
+            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
+            // 
+            // add_new_dep_button
+            // 
+            this.add_new_dep_button.Location = new System.Drawing.Point(13, 314);
+            this.add_new_dep_button.Name = "add_new_dep_button";
+            this.add_new_dep_button.Size = new System.Drawing.Size(421, 23);
+            this.add_new_dep_button.TabIndex = 3;
+            this.add_new_dep_button.Text = "Добавить новый отдел";
+            this.add_new_dep_button.UseVisualStyleBackColor = true;
+            this.add_new_dep_button.Click += new System.EventHandler(this.add_new_dep_button_Click);
+            // 
             // Deps_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(443, 290);
+            this.ClientSize = new System.Drawing.Size(443, 374);
+            this.Controls.Add(this.add_new_dep_button);
+            this.Controls.Add(this.refresh_button);
+            this.Controls.Add(this.change_boss_button);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Deps_list";
             this.Text = "Список отделов";
@@ -76,5 +112,8 @@
         private System.Data.SqlClient.SqlConnection myConnection;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Data.SqlClient.SqlCommand fill_the_table;
+        private System.Windows.Forms.Button change_boss_button;
+        private System.Windows.Forms.Button refresh_button;
+        private System.Windows.Forms.Button add_new_dep_button;
     }
 }

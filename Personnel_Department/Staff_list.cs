@@ -35,7 +35,7 @@ namespace Personnel_Department
                 string id_record = selectedRow.Cells["Номер записи"].Value.ToString();
                 string num_dep = selectedRow.Cells["Номер отдела"].Value.ToString();
                 string post_name = selectedRow.Cells["Должность"].Value.ToString();
-                string count_units = selectedRow.Cells["Количество рабочих мест"].Value.ToString();
+                string count_units = selectedRow.Cells["Свободные места"].Value.ToString();
                 string salary = selectedRow.Cells["Зарплата"].Value.ToString();
 
                 Form frm = new Change_row_in_staff_list(id_record, num_dep, post_name, count_units, salary);
